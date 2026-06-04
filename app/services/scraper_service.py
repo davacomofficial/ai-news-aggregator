@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+from app.services.ai_service import summarize_article
+
 
 def scrape_ai_news():
 
@@ -21,11 +23,18 @@ def scrape_ai_news():
 
         title = item.get_text(strip=True)
 
+        summary = summarize_article(title)
+
         articles.append({
-            "title": title
+
+            "title": title,
+
+            "summary": summary
         })
 
     return {
+
         "status": True,
+
         "articles": articles
     }

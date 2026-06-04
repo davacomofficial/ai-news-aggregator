@@ -3,3 +3,4 @@ __pycache__/
 txtfolder/
 .env
 *.pyc
+watcher.py

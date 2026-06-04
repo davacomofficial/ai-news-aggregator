@@ -16,6 +16,8 @@ async function loadNews() {
 
                 <h3>${article.title}</h3>
 
+                <p>${article.summary}</p>
+
             </div>
 
         `
