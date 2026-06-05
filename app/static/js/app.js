@@ -6,7 +6,30 @@ async function loadNews() {
 
     const newsList = document.getElementById("newsList")
 
+    const trendingContainer = document.getElementById(
+        "trendingTopics"
+    )
+
     newsList.innerHTML = ""
+
+    trendingContainer.innerHTML = ""
+
+    data.trending_topics.forEach(topic => {
+
+        trendingContainer.innerHTML += `
+
+            <div class="topic-tag">
+
+                #${topic[0]}
+
+                <span>
+                    ${topic[1]}
+                </span>
+
+            </div>
+
+        `
+    })
 
     data.articles.forEach(article => {
 

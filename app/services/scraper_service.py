@@ -9,6 +9,10 @@ from app.models.news_model import (
     News
 )
 
+from app.services.trend_service import (
+    extract_trending_topics
+)
+
 
 def scrape_ai_news():
 
@@ -98,9 +102,15 @@ def scrape_ai_news():
 
     db.close()
 
+    trending_topics = extract_trending_topics(
+    articles
+    )
+
     return {
 
         "status": True,
 
-        "articles": articles
+        "articles": articles,
+
+        "trending_topics": trending_topics
     }
